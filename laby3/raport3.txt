@@ -1,0 +1,48 @@
+Laboratoria 3
+Adam Kun 337581
+
+Zadanie 1 - Sumy kontrolne
+
+dokumenty/budzet.csv: BLAD
+dokumenty/dane.bin: OK
+dokumenty/harmonogram.txt: BRAK
+dokumenty/kontakt.txt: OK
+dokumenty/regulamin.txt: OK
+Liczba różniących się bitów: 131
+
+Suma kontrolna umieszczona obok pliku nie chroni przed celową podmianą,
+ponieważ atakujący po modyfikacji pliku może zmodyfikować także samą sumę,
+dlatego zamiast niej należy użyć HMAC z tajnym kluczem lub podpisu cyfrowego.
+
+
+
+Zadanie 2 - Przechowywanie haseł
+anna, Kasztan-2026: True
+anna, kasztan-2026: False
+piotr, Żółw na łące: True
+kasia, Kasztan-2026: False
+
+--- Nowe konta ---
+Konto 1 sol: efdd8b714552f4800365d3f6030de025
+Konto 2 sol: 967ead314fa039c145634ae18f1f1065
+Konto 1 skrot: 484c3e9ee6ad18c9c27189ae8cecc975aa20ed81bd086740e6aaa20268592b28
+Konto 2 skrot: fbee6c74f5e01d013178a1c57ddd2f772701576adec76aeb4d7d6a4bfba02eed
+Sole są równe: False
+Skróty są równe: False
+
+Nowe konta z tym samym hasłem mają różne sole oraz różne skróty,
+a ich weryfikacja daje wynik pozytywny (prawda).
+
+Sól chroni przed atakami z użyciem tablic tęczowych i unikalizuje skróty dla identycznych haseł,
+natomiast liczba iteracji spowalnia obliczanie skrótu, utrudniając atak metodą brute-force.
+
+
+
+Zadanie 3 - Kolizje i paradoks urodzinowy
+
+Znaleziona para -> v_oryginal: 7282, v_zmieniony: 1761, h24: aac6b9
+Liczba trafien z h24 wariantu 0: 0
+
+Znalezienie dowolnej pary jest znacznie łatwiejsze ze względu na paradoks urodzinowy
+(wymaga około 2^(n/2) prób, czyli około 4096 dla 24 bitów),
+podczas gdy dopasowanie do ustalonego skrótu wymaga aż 2^n prób (około 16,8 mln).
